@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 // Pruebas unitarias del sistema de nomina
 public class NominaTest {
 
-    // Primera prueba: un asalariado con mas de 5 años debe ganar más que uno sin antiguedad
+    // Primera prueba: un empleado asalariado con mas de 5 años debe ganar más que uno sin antiguedad
     @Test
     public void testAsalariado_BonoAntiguedad() {
         EmpleadoAsalariado conBono = new EmpleadoAsalariado("Juan", 3000000, 6);
@@ -15,4 +15,12 @@ public class NominaTest {
         assertTrue(conBono.calcularSalarioNeto() > sinBono.calcularSalarioNeto());
 
     }
+
+// Segunda prueba: imposibilidad de ventas negativas
+@Test
+public void testComision_VentasNegativas(){
+    assertThrows(IllegalArgumentException.class, ()-> {
+        new EmpleadoPorComision("Error", 1500000, -1000, 0.05);
+    });
+}
 }
