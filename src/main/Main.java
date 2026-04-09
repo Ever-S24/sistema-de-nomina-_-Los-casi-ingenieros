@@ -75,22 +75,13 @@ public class Main {
             return;}
             System.out.println("Empleado registrado: " + nombre);
 
-
-
-
-       
-
-
-
-
-
-
-
-
+            //Imprimir resumen del cálculo de nómina
+            System.out.println("\n=== RESULTADO ===");
+            System.out.println("Empleado:      " + nombre);
+            System.out.println("Salario bruto: $" + empleado.calcularSalario());
+            System.out.println("Deducciones:   $" + empleado.calcularDeducciones(empleado.calcularSalario()));
+            System.out.println("Salario neto:  $" + empleado.calcularSalarioNeto());
 
         scanner.close();
-
-
-
     }
 }
