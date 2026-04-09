@@ -15,7 +15,24 @@ public class Main {
         int opcion=scanner.nextInt();
 
         System.out.println("Tipo de empleado: " +opcion);
+        scanner.nextLine();
+
+        System.out.print("Nombre del empleado: ");
+        String nombre = scanner.nextLine();
+
+        System.out.println("Tipo: " + opcion + " | Nombre: " + nombre);
+
+
+
+
+
+
+
+
+
         scanner.close();
+
+
 
     }
 }
