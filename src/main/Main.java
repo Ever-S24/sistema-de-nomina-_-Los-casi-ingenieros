@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Seleccione un tipo de empleado:");
         System.out.println("1. Asalariado");
         System.out.println("2. Por Horas");
-        System.out.println("3. Por Comision");
+        System.out.println("3. Por Comisión");
         System.out.println("4. Temporal");
         System.out.print("\nOpcion: ");
         int opcion=scanner.nextInt();
@@ -52,8 +52,31 @@ public class Main {
             System.out.print("¿Acepta ingresar al fondo de ahorro? (1=Si, 2=No): ");
             int fondoOpcion = scanner.nextInt();
             aceptaFondo = fondoOpcion == 1;}
-            empleado = new EmpleadoPorHoras(nombre, pagoPorHora, horas, años, aceptaFondo);
-}
+            empleado = new EmpleadoPorHoras(nombre, pagoPorHora, horas, años, aceptaFondo);}
+
+            //EMPLEADO POR COMISIÓN
+        else if (opcion == 3) {
+            System.out.print("Salario base: ");
+            double salarioBase = scanner.nextDouble();
+            System.out.print("Total de ventas: ");
+            double ventas = scanner.nextDouble();
+            System.out.print("Porcentaje de comisión: (0.01 equivale a 1%)");
+            double porcentaje = scanner.nextDouble();
+            empleado = new EmpleadoPorComision(nombre, salarioBase, ventas, porcentaje);}
+
+            //EMPLEADO TEMPORAL
+        else if (opcion == 4) {
+            System.out.print("Salario base: ");
+            double salarioBase = scanner.nextDouble();
+            empleado = new EmpleadoTemporal(nombre, salarioBase);}
+        else {
+            System.out.println("Opcion no valida.");
+            scanner.close();
+            return;}
+            System.out.println("Empleado registrado: " + nombre);
+
+
+
 
        
 
