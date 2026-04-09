@@ -26,15 +26,34 @@ public class Main {
 
         EmpleadoGeneral empleado = null ;
 
-        // si el empleado es asalariado se deben pedir el salario base y los años de antiguedad
+        // PEDIR DATOS SEGÚN EL TIPO DE EMPLEADO SELECCIONADO
+
+            //EMPLEADO ASALARIADO
         if (opcion==1){
             System.out.print("Salario base: ");
             double salarioBase=scanner.nextDouble();
             System.out.print("Años en la empresa: ");
             int años=scanner.nextInt();
-            empleado=new EmpleadoAsalariado(nombre, salarioBase, años);
+            empleado=new EmpleadoAsalariado(nombre, salarioBase, años);}
 
-        }
+            //EMPLEADO POR HORAS
+        else if (opcion == 2) {
+            System.out.print("Pago por hora: ");
+            double pagoPorHora = scanner.nextDouble();
+            System.out.print("Horas trabajadas en el mes: ");
+            int horas = scanner.nextInt();
+            System.out.print("Años en la empresa: ");
+            int años = scanner.nextInt();
+
+            boolean aceptaFondo = false;
+
+            // Solo se pregunta si lleva mas de 1 año en la empresa
+            if (años > 1) {
+            System.out.print("¿Acepta ingresar al fondo de ahorro? (1=Si, 2=No): ");
+            int fondoOpcion = scanner.nextInt();
+            aceptaFondo = fondoOpcion == 1;}
+            empleado = new EmpleadoPorHoras(nombre, pagoPorHora, horas, años, aceptaFondo);
+}
 
        
 
