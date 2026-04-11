@@ -83,13 +83,16 @@ public void testComision_ExcepcionVNegativas() {
     new EmpleadoPorComision("Error", 1500000, -1000, 0.05);});}
 
 
+//                                  EMPLEADO TEMPORAL
+
+//      Prueba 9: un empleado temporal solo debe recibir su salario base.
+//
+@Test
+public void testTemporal_SoloSalarioBase() {
+    EmpleadoTemporal emp =new EmpleadoTemporal("Sofia j", 1800000);
+    assertEquals(1800000, emp.calcularSalario(), 0.01);}
 
 
 
-
-
-
-    
-
-
+  
 }  
