@@ -29,8 +29,6 @@ public void testAsalariado_SinBonodeantiguedad() {
     assertTrue(cincoAños.calcularSalarioNeto() < seisAños.calcularSalarioNeto());}
 
 
-
-
 //                                  EMPLEADO POR HORAS
 
 //      Pruba 3: lsa horas extra (+40hrs) se pagan a 1.5x.
@@ -61,18 +59,37 @@ public void testPorHoras_ExcepcionHorasNegativas() {
 //                si se acepta el fondo de ahorro, el salario neto debe ser menor.
 @Test
 public void testPorHoras_DescuentoFondodeAhorro() {
-    EmpleadoPorHoras conFondo = new EmpleadoPorHoras("Lisa", 20000, 40, 2, true);
-    EmpleadoPorHoras sinFondo = new EmpleadoPorHoras("Mike", 20000, 40, 2, false);
+    EmpleadoPorHoras conFondo = new EmpleadoPorHoras("Lisa t", 20000, 40, 2, true);
+    EmpleadoPorHoras sinFondo = new EmpleadoPorHoras("Mike n", 20000, 40, 2, false);
     assertTrue(conFondo.calcularSalarioNeto() < sinFondo.calcularSalarioNeto());}
 
 
-//      
+//                                  EMPLEADO POR COMISIÓN
+
+//      Prueba 7: si las ventas sobrepasan los 20millones se debe activar el bono del 3%.
+//                un empleado con ventas altas debe ganar más que un empleado con ventas bajas.
+@Test
+public void testComision_BonoPorVentasm20M() {
+    EmpleadoPorComision conBono = new EmpleadoPorComision("Luis p", 1500000, 25000000, 0.05);
+    EmpleadoPorComision sinBono = new EmpleadoPorComision("Rosa m", 1500000, 10000000, 0.05);
+    assertTrue(conBono.calcularSalario() > sinBono.calcularSalario());}
+
+
+//      Prueba 8: si se ingresan ventas negativas el programa debe lanzar una excepción.
+//                
+@Test
+public void testComision_ExcepcionVNegativas() {
+    assertThrows(IllegalArgumentException.class, () -> {
+    new EmpleadoPorComision("Error", 1500000, -1000, 0.05);});}
 
 
 
 
 
 
+
+
+    
 
 
 }  
