@@ -93,6 +93,13 @@ public void testTemporal_SoloSalarioBase() {
     assertEquals(1800000, emp.calcularSalario(), 0.01);}
 
 
+//                                  VALIDACIÓN
 
+// Prueba 10: existe una regla de negocio clara que aplica para todos los tipos de empleados.
+//            ningún empleado puede tener un salario negativo.
+@Test
+public void testGeneral_NoSalarioNehativo() {
+    EmpleadoGeneral emp = new EmpleadoTemporal("Sofia j", 1800000);
+    assertTrue(emp.calcularSalarioNeto() >= 0);}
   
-}  
+}
